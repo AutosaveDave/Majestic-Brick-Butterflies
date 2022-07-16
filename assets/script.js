@@ -1,5 +1,13 @@
 var timerEl = $('#timer');
 var messageEl = $('#message');
+var zipB = $("#zipButton")
+var zipI = $("#zipInput")
+
+var lat=9000;
+var long=9000;
+var sunsetTime="";
+
+document.addEventListener("click", getApi);
 
 function getApi() {
   // fetch request gets a list of all the repos for the node.js organization
@@ -18,9 +26,23 @@ function getApi() {
           var long = data[i].longitude
           console.log(lat)
           console.log(long)
+          getSunset();
         }
       }
      
     });
 }
-getApi()
+
+function getSunset() {
+  requestUrl ='https://api.sunrise-sunset.org/json?' + "lat=" + lat + "&lng=" + long;
+  console.log(requestUrl);
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      console.log("data.results.sunset: "+data.results.sunset);
+      sunsetTime=data.results.sunset;
+    });
+}
