@@ -5,19 +5,24 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Bedtime at Sunset</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            crossorigin="anonymous"
+            ></script>
     </head>
     <body class = "has-background-grey-darker">
         <div class = "level has-background-grey-darker">
             <div class = "level-left">
                 <form>
                     <label class = "has-text-white" for="zipInput">Enter Zip Code:</label>
-                        <input id="zipInput" type="text" placeholder="Zip Code">
-                    <button type="button">OK</button>
+                        <input id = "zipInput" type = "text" placeholder = "Zip Code">
+                    <button id = "zipButton" type = "button">OK</button>
                 </form>
             </div>
             <div class = "level-right">
                     <h1 class = "has-text-white">Bedtime at Sunset</h1>
-                <img src="./sun.svg">
+                <img src="./assets/sun.svg">
             </div>
         </div>
         <div class = "columns">
@@ -26,22 +31,22 @@
                 <div class = "field">
                     <div class = "control">
                         <label class = "level radio box has-background-primary-dark has-text-white ml-2 mt-3">
-                            <input type = "radio" name = "songChoice" checked>
+                            <input class = "songs" type = "radio" name = "songChoice" value = "1" checked>
                             Song 1
                         </label>
                         
                         <label class = "level radio box has-background-primary-dark has-text-white ml-2">
-                            <input type = "radio" name = "songChoice">
+                            <input class = "songs" type = "radio" name = "songChoice" value = "2">
                             Song 2
                         </label>
                         
                         <label class = "level radio box has-background-primary-dark has-text-white ml-2">
-                            <input type = "radio" name = "songChoice">
+                            <input class = "songs" type = "radio" name = "songChoice" value = "3">
                             Song 3
                         </label>
                         
                         <label class = "level radio box has-background-primary-dark has-text-white ml-2">
-                            <input type = "radio" name = "songChoice">
+                            <input class = "songs" type = "radio" name = "songChoice" value = "4">
                             Song 4
                         </label>
                     </div>
@@ -66,7 +71,6 @@
             <button type="button">Set New Message</button>
         </form>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
     <script src="./assets/script.js"></script>
     </body>
 </html>
