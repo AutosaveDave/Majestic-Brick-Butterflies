@@ -1,3 +1,4 @@
+
 var timerEl = document.querySelector('#timer');
 var messageEl = document.querySelector('#message');
 var zipB = document.querySelector("#zipButton");
