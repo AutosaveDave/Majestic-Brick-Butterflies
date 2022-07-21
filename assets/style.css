@@ -2,6 +2,15 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+.zipInputBar {
+    margin-left: 64px;
+}
+
+.sunIcon {
+    margin-left: 64pv;
+    margin-right: 96px;
+}
+
 .styleTitle {
 text-align: justify;
 font-size: 23px;
