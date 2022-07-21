@@ -31,22 +31,22 @@
                 <div class = "field">
                     <div class = "control">
                         <label class = "level radio box has-background-primary-dark has-text-white ml-2 mt-3">
-                            <input class = "songs" type = "radio" name = "songChoice" value = "1" checked>
+                            <input class = "songs" type = "radio" name = "songChoice" value = "0" checked>
                             Song 1
                         </label>
                         
                         <label class = "level radio box has-background-primary-dark has-text-white ml-2">
-                            <input class = "songs" type = "radio" name = "songChoice" value = "2">
+                            <input class = "songs" type = "radio" name = "songChoice" value = "1">
                             Song 2
                         </label>
                         
                         <label class = "level radio box has-background-primary-dark has-text-white ml-2">
-                            <input class = "songs" type = "radio" name = "songChoice" value = "3">
+                            <input class = "songs" type = "radio" name = "songChoice" value = "2">
                             Song 3
                         </label>
                         
                         <label class = "level radio box has-background-primary-dark has-text-white ml-2">
-                            <input class = "songs" type = "radio" name = "songChoice" value = "4">
+                            <input class = "songs" type = "radio" name = "songChoice" value = "3">
                             Song 4
                         </label>
                     </div>
@@ -71,6 +71,35 @@
             <button type="button">Set New Message</button>
         </form>
     </div>
+
+    <!-- -------------------------------------MODAL ------------------------------>
+    <div id = "bad-zip-modal" class = "modal">
+        <div class = "modal-background"></div>
+            <div class = "columns">
+                
+                    <div class = "column modal-content box has-background-grey has-text-white has-text-centered">
+                        <br><br><h1 class = "has-text-centered">Invalid Zip Code</h1><br><br>
+                    </div>
+                
+            </div>
+    </div>
+
+    <div id = "sound-player-modal" class = "modal">
+        <div class = "modal-background"></div>
+            <div class = "columns">
+                
+                <div class = "column modal-content box has-background-grey has-text-white has-text-centered">
+                    <h1 id = "" class = "has-text-centered">WAKE UP</h1>
+                    
+                </div>
+                
+            </div>
+    </div>
+
+    <br>
+    <button id = "testButton">TEST</button>
+    
+
     <script src="./assets/script.js"></script>
     </body>
 </html>
