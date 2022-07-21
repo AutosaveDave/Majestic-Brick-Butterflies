@@ -6,6 +6,9 @@ var zipI = document.querySelector("#zipInput");
 var radioButtons = document.querySelectorAll(".songs");
 var audioEl = document.querySelector("#audio-element");
 
+var timerAlreadySet = false;
+
+
 var countdown=0;
 
 var testButton = document.querySelector("#testButton");
@@ -142,22 +145,26 @@ function getSunset(latitude , longitude) {
     }
     timer = Math.floor(timer/1000);
     countdown=timer;
+    
     initTimer();
   }
 
 }
 
 function initTimer() {
-  var timerInterval = setInterval(function() {
-    countdown--;
-    timerEl.textContent = "Sunset in " + timerString(countdown);
-    if(countdown === 0) {
-      clearInterval(timerInterval);
-      timerEl.textContent = "";
-      openAudioModal();
-    }
+  if(timerAlreadySet === false){
+    timerAlreadySet=true;
+    var timerInterval = setInterval(function() {
+      countdown--;
+      timerEl.textContent = "Sunset in " + timerString(countdown);
+      if(countdown === 0) {
+        clearInterval(timerInterval);
+        timerEl.textContent = "";
+        openAudioModal();
+      }
 
-  }, 1000);
+    }, 1000);
+  }
 }
 
 function timerString(timer) {
