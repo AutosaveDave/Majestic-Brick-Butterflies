@@ -4,8 +4,17 @@ var messageEl = document.querySelector('#message');
 var zipB = document.querySelector("#zipButton");
 var zipI = document.querySelector("#zipInput");
 var radioButtons = document.querySelectorAll(".songs");
+var audioEl = document.querySelector("#audio-element");
 
-var songChoice = 1;
+var testButton = document.querySelector("#testButton");
+
+const audioFiles = ["./assets/assets_forestAudio.mp3",
+      "./assets/beachWavesAudio.wav",
+      "./assets/pianoAudio.wav",
+      "./assets/rainAudio.mp3"];
+
+var songChoice = 0;
+var audioObject = new Audio(audioFiles[songChoice]);
 
 var lat=9000;
 var long=9000;
@@ -14,16 +23,18 @@ var sunsetTime="";
 radioButtons.forEach( song => {
   song.addEventListener("click" , function() {
     songChoice = this.value;
-    console.log(songChoice);
+    audioObject = new Audio(audioFiles[songChoice]);
   });
 });
 
 zipB.addEventListener("click", function() {
   var zipString = "" + zipI.value;
-  console.log(zipString);
-  if(zipString.length===5){
+  var zipAcceptable = true;
+  if(!(zipString.length===5)){
+    zipAcceptable = false;
+  } else{
     var numChars = "0123456789";
-    var zipAcceptable = true;
+    
     var digitAcceptable = false
     for(i = 0 ; i < zipString.length && zipAcceptable ; i++){
       digitAcceptable = false;
@@ -34,15 +45,13 @@ zipB.addEventListener("click", function() {
       }
       if(!digitAcceptable){
         zipAcceptable = false;
-        console.log("Zip Code Unacceptable")
+        console.log("Zip Code Unacceptable");
       }
     }
-
+  }
     if(zipAcceptable){
       var requestUrl ='http://api.positionstack.com/v1/forward?access_key=350b866358a2286c00d4e76f6864d744&query='+zipString;
 
-    
-      // fetch request gets a list of all the repos for the node.js organization
       fetch(requestUrl)
         .then(function (response) {
           return response.json();
@@ -61,7 +70,8 @@ zipB.addEventListener("click", function() {
           }
         
         });
-      }
+    } else {
+      openBadZipModal();
     }
 });
 
@@ -95,34 +105,11 @@ function initTimer(countdown) {
     countdown--;
     timerEl.textContent = "Sunset in " + timerString(countdown);
     if(countdown === 0) {
-      clearInterval(countdown);
+      clearInterval(timerInterval);
       soundAlarm(songChoice);
     }
 
   }, 1000);
-}
-
-function soundAlarm(songChoice) {
-  switch(songChoice){
-    case 1:
-
-    break;
-
-    case 2:
-
-    break;
-
-    case 3:
-
-    break;
-
-    case 4:
-
-    break;
-
-    default:
-
-  }
 }
 
 function timerString(timer) {
@@ -144,3 +131,36 @@ function timerString(timer) {
   
   return timerText;
 }
+
+function openBadZipModal(){
+  $("html").addClass("is-clipped");
+  $("#bad-zip-modal").addClass("is-active");
+}
+
+function openAudioModal(){
+  $("html").addClass("is-clipped");
+  $("#sound-player-modal").addClass("is-active");
+  audioObject.play();
+}
+
+$(".modal-close").click( function() {
+  $("html").removeClass("is-clipped");
+  $(this).parent().removeClass("is-active");
+  audioObject.pause();
+  audioObject.currentTime=0;
+});
+
+$(".modal-background").click( function() {
+  $("html").removeClass("is-clipped");
+  $(this).parent().removeClass("is-active");
+  audioObject.pause();
+  audioObject.currentTime=0;
+});
+
+
+// -----------------TESTING-REMOVE-------------
+$("#testButton").click( function() {
+  openAudioModal();
+  console.log("testbtn click")
+});
+// -------------------------------------------------
