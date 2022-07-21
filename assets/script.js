@@ -159,6 +159,7 @@ function initTimer() {
       timerEl.textContent = "Sunset in " + timerString(countdown);
       if(countdown === 0) {
         clearInterval(timerInterval);
+        timerAlreadySet=false;
         timerEl.textContent = "";
         openAudioModal();
       }
@@ -211,11 +212,3 @@ $(".modal-background").click( function() {
   audioObject.pause();
   audioObject.currentTime=0;
 });
-
-
-// -----------------TESTING-REMOVE-------------
-$("#testButton").click( function() {
-  countdown=5;
-  console.log("testbtn click")
-});
-// -------------------------------------------------
