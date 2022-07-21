@@ -1,0 +1,23 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.styleTitle {
+text-align: justify;
+font-size: 23px;
+}
+
+.styleSongs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+#timer {
+    font-size: 23px;
+}
+
+.tstBTN {
+    padding-left: 18px;
+}
