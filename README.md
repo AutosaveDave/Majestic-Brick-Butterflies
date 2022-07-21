@@ -1,5 +1,7 @@
 # Sunset Alarm
 
+https://dccoppock.github.io/Majestic-Brick-Butterflies/
+
 ## Description
 
 Many people who work at a computer screen during the day do so in windowless cubicles, offices, and basements. With no way of seeing the light of day slip away, these workers can easily lose track of time and work far later than intended. To prevent the innevitable burnout caused by over-working, office workers and basement dwellers may sometimes need a reminder to stop working when the sun goes down.
@@ -31,7 +33,6 @@ Sunset Alarm utilizes the Bulma CSS framework for styling.
 The user should enter their zip code in the input text box in the upper left of the app and then press the START button.
 
 And that's it! The app takes care of the rest. A countdown timer appears and counts down to the time of sunset. Once the countdown is complete, the user is alerted by a modal and an alarm sound playing.
-
 
 ![screenshot](assets/SunsetAlarmScreen1.png)
 
