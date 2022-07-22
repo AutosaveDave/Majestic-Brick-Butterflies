@@ -76,7 +76,7 @@ zipB.addEventListener("click", function() {
     }
   }
   if(zipAcceptable){
-    var requestUrl ='http://api.positionstack.com/v1/forward?access_key=350b866358a2286c00d4e76f6864d744&query='+zipString;
+    var requestUrl ='https://api.positionstack.com/v1/forward?access_key=350b866358a2286c00d4e76f6864d744&query='+zipString;
     localStorage.setItem("sunsetZip", zipString);
 
     var _lat = localStorage.getItem("sunsetLat");
